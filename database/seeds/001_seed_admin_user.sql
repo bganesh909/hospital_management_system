@@ -1,0 +1,5 @@
+-- No admin account is seeded: credentials must never be hardcoded.
+-- Create the first admin after migrating (from backend-fastapi/):
+--   python -m app.scripts.create_admin
+-- or non-interactively:
+--   ADMIN_EMAIL=you@hospital.com ADMIN_PASSWORD='...' python -m app.scripts.create_admin

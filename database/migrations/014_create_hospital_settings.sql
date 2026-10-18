@@ -1,0 +1,26 @@
+-- 014: Create hospital settings (single-row table)
+CREATE TABLE hospital_settings (
+  id                   UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  singleton            BOOLEAN NOT NULL DEFAULT true UNIQUE CHECK (singleton),
+  hospital_name        VARCHAR(200) NOT NULL DEFAULT 'Hospital',
+  tagline              VARCHAR(200),
+  registration_number  VARCHAR(100),
+  tax_id               VARCHAR(50),
+  address_line1        VARCHAR(255),
+  address_line2        VARCHAR(255),
+  city                 VARCHAR(100),
+  state                VARCHAR(100),
+  zip_code             VARCHAR(20),
+  country              VARCHAR(100),
+  phone                VARCHAR(20),
+  email                VARCHAR(255),
+  website              VARCHAR(255),
+  logo_url             TEXT,
+  currency             VARCHAR(3) NOT NULL DEFAULT 'INR',
+  currency_symbol      VARCHAR(5) NOT NULL DEFAULT 'Rs.',
+  tax_rate             DECIMAL(5,2) NOT NULL DEFAULT 0 CHECK (tax_rate >= 0 AND tax_rate <= 100),
+  invoice_footer       TEXT,
+  timezone             VARCHAR(50) NOT NULL DEFAULT 'Asia/Kolkata',
+  created_at           TIMESTAMPTZ DEFAULT now(),
+  updated_at           TIMESTAMPTZ DEFAULT now()
+);
